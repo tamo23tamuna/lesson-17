@@ -15,8 +15,7 @@ function getUser(currentPage){
         let text = request.responseText;
         let convert = JSON.parse(text);
 
-        let ul = document.getElementById("list");
-        ul.classList.add("list");
+        let ul = document.getElementById("list-1");
         const fragment = new DocumentFragment();
         convert.data.forEach(item => {
             let li = document.createElement("li");
@@ -56,3 +55,32 @@ prevButton.addEventListener("click", function(){
 });
 
 getUser(currentPage);
+
+
+
+// fetch
+let ul2 = document.getElementById("list-2")
+
+fetch("https://reqres.in/api/unknown", {
+    METHOD: "GET"
+})
+.then(function(text){
+    if (text.status !== 200){
+        throw text.status;
+    }
+    return text.json();
+})
+.then(function(converted){
+    converted.data.forEach((item) => {
+        let li2 = document.createElement("li")
+        li2.innerText = `${item.name} ${item.year}`;
+        ul2.appendChild(li2);
+    });
+})
+.catch(function(error){
+    if(error == 404){
+        let p = document.createElement("p");
+        p.textContent = "page not found";
+        ul2.appendChild(p);
+    }
+})
