@@ -8,11 +8,13 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 .wraper{
     width: 280px;
     background-color: peru;
     padding: 20px;
+    margin: 20px;
     border-radius: 30px;
     border-color: black;
     display: flex;
