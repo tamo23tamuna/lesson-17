@@ -59,6 +59,7 @@ getUser(currentPage);
 
 
 // fetch
+
 let ul2 = document.getElementById("list-2")
 
 fetch("https://reqres.in/api/unknown", {
